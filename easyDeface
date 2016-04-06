@@ -1,0 +1,11 @@
+# This is a simple and short script to use pydeface to deface a set of
+# structural images in files with a BIDS database structure
+#
+
+#!/bin/sh
+# Set the working directory
+PROJ_D = pwd
+/bin/ls */anat/*.nii.gz >> filelist
+for i in $(cat filelist); do echo $i; pydeface $i; done
+for i in $(cat filelist); do rm $i; done
+#
