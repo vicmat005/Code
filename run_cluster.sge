@@ -1,11 +1,11 @@
 #! /bin/bash
-## SGE batch file - test1
+## SGE batch file - cpac_FAB
 #$ -S /bin/bash
-#$ -N benchmark
-#$ -pe openmp 7
-#$ -t 1-40 
+#$ -N cpac_FAB
+#$ -pe openmp 8
+#$ -t 1-100 
 #$ -V
-#$ -wd /mnt/MD1200A/fbarrios/fbarrios/cpac_test/outputs_benchmark/cluster_files
+#$ -wd /mnt/MD1200A/fbarrios/cpac_outputs/cluster_files
 
 module add singularity/2.2
 
