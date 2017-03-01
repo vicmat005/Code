@@ -3,7 +3,7 @@
 #$ -S /bin/bash
 #$ -N cpac_FAB
 #$ -pe openmp 8
-#$ -t 1-100 
+#$ -t 1-8 
 #$ -V
 #$ -wd /mnt/MD1200A/fbarrios/cpac_outputs/cluster_files
 
