@@ -1,0 +1,449 @@
+   26  qrsh -q all.q@compute-00-01.cm.cluster
+   27  exit
+
+   31  cd /scratch/
+   32  ls
+
+   39  qsub cpac_test.sge
+   40  qsub cpac_test1.sge
+   41  qstat
+
+   42  watch -n 5 qstat 
+   43  qstat
+   44  qlogin -l h=compute-00-00
+ 
+   68  ls
+   69  ln -s /mnt/MD1200A/fbarrios/fbarrios/singularity_images singularity-images
+   70  mv /mnt/MD1200A/fbarrios/bids_cpac_v3 singularity-images/
+   71  ls
+   72  cd singularity-
+   73  cd singularity-images/
+   74  ls
+   75  ./bids_cpac_v3 
+   76  singularity exec bids_cpac_v3 echo -ne "hello\nworld\n\n"
+   77  singularity exec bids_cpac_v3 afni
+   78  singularity exec bids_cpac_v3 cpac_gui
+   79  ls
+   80  singularity shell --shell /bin/bash bids_cpac_v3
+   81  ls
+
+   86  singularity exec -B /mnt:/mnt bids_cpac_v3 cpac_gui
+
+   92  cd /mnt/
+   93  cd MD1200A/fbarrios/fbarrios/
+  
+  106  singularity run -B /mnt:/mnt cpac_v1.0.0 /mnt /mnt GUI
+  107  ls
+  108  cd ..
+  109  ls
+
+  155  wget https://s3.amazonaws.com/fcp-indi/resources/benchmark_package.tar.gz
+  156  ls
+
+  166  vi pipeline_config_benchmark.yml 
+  167  ls
+  168  cd ..
+  169  ls
+  170  cd subject_lists/
+  171  ls
+  172  more CPAC_benchmark_participants.yml 
+  173  ls
+  174  mv CPAC_benchmark_participants.yml ../../
+  175  cd ../../
+  176  ls
+  177  mv CPAC_benchmark_participants.yml ../
+  178  ls
+  179  cd ..
+  180  ls
+  181  rm -rf benchmark_package benchmark_package.tar.gz 
+  182  ls
+
+  196  ls -lah cpac_v5 
+  197  ls -la cpac_v5 
+  198  watch -n 5 cpac_v5 
+  199  watch -n 5 ls cpac_v5 
+  200  watch -n 5 ls -la cpac_v5 
+  201  qstat
+  202  qstat -f
+  203  history
+  204  qrsh -q all.q@compute-00-02.cm.cluster
+  205  qrsh -q all.q@compute-00-02.cm.cluster
+  206  ls
+  207  ls -al cpac_
+  208  ls -al cpac_v5 
+  209  ls -hal cpac_v5 
+  210  exit
+  211  ls
+  212  cd /mnt/MD1200A/
+  213  ls
+  214  cd fbarrios/
+  215  ks
+
+  238  cd Results/
+  239  ls
+  240  cd rfMRI_REST1_RL/
+  241  ls
+
+  254  exit
+  255  module avail
+  256  module initadd singularity/2.2r
+  257  more ~/.bashrc 
+  258  exit
+ 
+  284  mkdir working
+  285  ls -la
+  286  exit
+  287  ls
+  288  top
+  289  exit
+  290  singularity
+  291  ls
+  292  ls /mnt/MD1200A/
+  293  ls /mnt/MD1200A/fbarrios/
+  294  ls
+  295  cd /mnt/MD1200A/fbarrios/
+  296  ls
+  297  cd fbarrios/
+  298  ls
+  299  ls -lah
+  300  ls -la
+  301  cd singularity_images/
+  302  echo $PWD
+  303  chmod g+x cpac_v1.0.0 
+  304  cd ..
+  305  ls
+  306  ls -la
+  307  cd singularity_images/
+  308  pwd
+  309  ls
+  310  singularity run cpac_v1.0.0 
+  311  singularity run cpac_v1.0.0 -h
+  312  singularity run cpac_v1.0.0 
+  313  singularity run -B /mnt:/mnt cpac_v1.0.0 bluch bluch GUI
+  314  ls
+  315  pwd
+  316  cd ..
+  317  ls
+  318  ls -la
+  319  ./cpac_v5 
+  320  cp cpac_v5 singularity_images/cpac_v1.0.0 
+  321  ls
+  322  cd singularity_images/
+  323  ls
+  324  singularity run -B /mnt:/mnt cpac_v1.0.0  bluch bluch GUI
+  325  ls
+  326  singularity shell --shell /bin/bash cpac_v1.0.0
+  327  ls
+  328  singularity run -B /mnt:/mnt cpac_v1.0.0  bluch bluch GUI
+
+
+  334  cd cpac_test/
+  335  ls
+  336  vi CPAC_benchmark_participants.yml 
+  337  ls
+  338  qstat
+  339  qstat -f
+  340  ls
+  341  cp cpac_test1.sge cpac_benchmark.sge
+  342  readlink -f CPAC_benchmark_participants.yml 
+  343  vi cpac_benchmark.sge 
+  344  ls
+  345  qstat
+  346  qstat -f
+  347  ls
+  348  qsub cpac_benchmark.sge 
+  
+  426  ls
+  427  cd /mnt/MD1200A/fbarrios/egarza/
+  428  ls
+  429  cd test_cpac/
+  430  ls
+  431  ls $PWD/HC_028_t1.nii.gz
+  432  ls -la
+  433  ls
+  434  singularity shell --shell /bin/bash /mnt/MD1200A/fbarrios/fbarrios/singularity_images/cpac_v1.0.0 
+  435  pwd
+  436  cd ../../
+  437  cd fbarrios/
+  438  ls
+  439  cd cpac_test/
+  440  ls
+  441  mkdir outputs_benchmark
+  442  ls
+  443  cd ..
+  444  cd singularity_images/
+  445  ls
+  446  ./cpac_v1.0.0 
+  447  ls
+  448  cd ..
+  449  ls
+  450  cd cpac_test/
+  451  ls
+  452  vi CPAC_benchmark_participants.yml 
+  453  history
+  454  history | grep qrsh
+  455  qrsh -q all.q@compute-00-01.cm.cluster
+  456  qrsh -q all.q@compute-00-00.cm.cluster
+  457  qrsh -q all.q@compute-00-01.cm.cluster
+  458  ls
+  459  qrsh -q all.q@compute-00-01.cm.cluster
+  460  qrsh -q all.q@compute-00-00.cm.cluster
+
+  
+  477  watch -n 5 qstat
+  478  qrsh -q all.q@compute-00-01.cm.cluster
+  479  qrsh -q all.q@compute-00-00.cm.cluster
+  480  watch -n 5 qstat
+  481  qstat -f 
+  482  watch -n 5 qstat -f 
+  483  exit
+  484  top
+  485  exit
+  486  top
+  487  ls
+  488  df -h
+  489  ls
+  490  qstat -j 330
+  491  ls
+  492  exit
+  493  df -h
+  494  exit
+  495  df -h
+  496  ls -la /local/
+  497  cd local
+  498  cd /local/
+  499  ls
+  500  mkdir dog
+  501  rm -rf dog
+  502  ls
+  503  exit
+  504  ls
+  505  singularity shell -shell /bin/bash -B /mnt:/mnt singularity-images/cpac_v1.0.0 
+  506  cd /mnt/MD1200A/fbarrios/fbarrios/
+  507  ls
+  508  cd cpac_test/
+  509  singularity shell --shell /bin/bash -B /mnt:/mnt singularity-images/cpac_v1.0.0 
+  510  singularity shell --shell /bin/bash -B /mnt:/mnt ~/singularity-images/cpac_v1.0.0 
+  511  exit
+  512  history
+  513   qrsh -q all.q@compute-00-00.cm.cluster
+  514  qstat -f
+  515   qrsh -q all.q@compute-00-00.cm.cluster
+  516   qrsh -q all.q@compute-00-01.cm.cluster
+  517   qrsh -q all.q@compute-00-00.cm.cluster
+  518  qstat
+  519  qstat -j 33-
+  520  qstat -j 330
+  521  ls
+  522  cd /mnt/MD1200A/
+  523  ls
+  524  cd fbarrios/fbarrios/
+  525  ls
+  526  cd cpac_test/
+  527  ls
+  528  cat benchmark.e330.*
+  529   qrsh -q all.q@compute-00-00.cm.cluster
+  530   qrsh -q all.q@compute-00-01.cm.cluster
+  531  ls
+  532  df -h
+  533   qrsh -q all.q@compute-00-00.cm.cluster
+  534  exit
+  535  cd /mnt/MD1200A/fbarrios/fbarrios/
+  536  ls
+  537  cd cpac_test/
+  538  ls
+  539  singularity shell --shell /bin/bash -B /mnt:/mnt ~/singularity-images/cpac_v1.0.0 
+  540  ls
+  541  exit
+  542  cd /mnt/MD1200A/fbarrios/fbarrios/cpac_test/
+  543  ls
+  544  qlogin
+  545  exit
+  546  ls
+  547  singularity shell --shell /bin/bash -B /mnt:/mnt /home/fbarrios/singularity-images/cpac_v1.0.0 
+  548  qstat -f
+  549  exit
+  550  ls
+  551  qstat
+  552  qlogin
+  553  qstat -f
+  554  qstat -spi
+  555  qmon -spi
+  556  exit
+  557  qstat
+  558  ls
+  559  qstat -f
+  560  qstat
+  561  watch -n 5 qstat
+  562  qdel 330
+  563  ls
+  564  cd /mnt/MD1200A/fbarrios/fbarrios/
+  565  ls
+  566  cd cpac_test/
+  567  ls
+  568  cd outputs_benchmark/
+  569  s
+  570  ls
+  571  cd crash/
+  572  ls
+  573  singularity shell --shell /bin/bash ~/singularity-images/cpac_v1.0.0 
+  574  singularity shell -B /mnt:/mnt --shell /bin/bash ~/singularity-images/cpac_v1.0.0 
+  575  ls
+  576  mv ADHD200_20_phenotypic.csv /mnt/MD1200A/fbarrios/fbarrios/cpac_test/
+  577  mv cpac_benchmark_group_analysis_participant_list.txt /mnt/MD1200A/fbarrios/fbarrios/cpac_test/
+  578  ls
+  579  cd /mnt/MD1200A/fbarrios/fbarrios/cpac_test/
+  580  ls
+  581  more ADHD200_20_phenotypic.csv 
+  582  ls
+  583  more cpac_benchmark_group_analysis_participant_list.txt 
+  584  cpac_benchmark_group_analysis_participant_list.txt | wc
+  585  cat cpac_benchmark_group_analysis_participant_list.txt | wc
+  586  ls
+  587  singularity run -v /mnt:/mnt /home/fbarrios/singularity-images/cpac_v1.0.0 bluch bluch GUI
+  588  singularity run -B /mnt:/mnt /home/fbarrios/singularity-images/cpac_v1.0.0 bluch bluch GUI
+  589  history
+  590  cd /mnt/MD1200A/fbarrios/fbarrios/cpac_test/
+  591  ls -l
+  592  singularity shell --shell /bin/bash -B /mnt:/mnt /home/fbarrios/singularity-images/cpac_v1.0.0
+  593  ls
+  594  cd /mnt/MD1200A/fbarrios/
+  595  ls
+  596  cd fbarrios/
+  597  ls
+  598  mv cpac_v5 singularity_images/cpac_v1.0.0 
+  599  ls
+  600  singularity shell --shell /bin/bash singularity_images/cpac_v1.0.0 
+  601  ls
+  602  cd ..
+  603  ls
+  604  cd rsConRDC/
+  605  ls
+  606  ls */*/
+  607  for i in *
+  608  for i in *; do echo $i; done
+  609  for i in */*; do echo $i; done
+  610  ls
+  611  for i in */*; do type=$(dirname $i); subj=$(basename $i); echo "mv $i sub-$type$subj"; done
+  612  for i in */*; do type=$(dirname $i); subj=$(basename $i); mv -v $i sub-$type$subj; done
+  613 
+
+  619  ls
+  620  for i in sub-Cont/*; do echo $i; done
+  621  for i in */*; do echo $i; done
+  622  for i in */Anats*; do echo $i; done
+  623  for i in */Anats*; do echo $i; subj=$(dirname $i); ofname=sub-$subj_T1w.nii.gz; echo "mkdir -p $subj/anat"; echo "mv $i $subj/anat/ofname";  done
+  624  for i in */Anats*; do echo $i; subj=$(dirname $i); ofname=sub-$subj_T1w.nii.gz; echo "mkdir -p $subj/anat"; echo "mv $i $subj/anat/$ofname";  done
+  625  for i in */Anats*; do echo $i; subj=$(dirname $i); ofname=sub-${subj}_T1w.nii.gz; echo "mkdir -p $subj/anat"; echo "mv $i $subj/anat/$ofname";  done
+  626  for i in */Anats*; do echo $i; subj=$(dirname $i); ofname=${subj}_T1w.nii.gz; echo "mkdir -p $subj/anat"; echo "mv $i $subj/anat/$ofname";  done
+  627  for i in */Anats*; do echo $i; subj=$(dirname $i); ofname=${subj}_T1w.nii.gz; mkdir -p $subj/anat; mv -v $i $subj/anat/$ofname;  done
+  628  ls
+  
+  632  for i in */Rs*; do subj=$(basename $i); ofname=${subj}_task-rest_bold.nii.gz; echo "mkdir -p ${subj}/func"; echo "mv -v $i ${subj}/func/${ofname}"; done
+  633  ls */Rs*
+  634  ls
+  635  ls */R*
+  636  ls */RS*
+  637  for i in */RS*; do subj=$(basename $i); ofname=${subj}_task-rest_bold.nii.gz; echo "mkdir -p ${subj}/func"; echo "mv -v $i ${subj}/func/${ofname}"; done
+  638  for i in */RS*; do subj=$(dirname $i); ofname=${subj}_task-rest_bold.nii.gz; echo "mkdir -p ${subj}/func"; echo "mv -v $i ${subj}/func/${ofname}"; done
+  639  for i in */RS*; do subj=$(dirname $i); ofname=${subj}_task-rest_bold.nii.gz; mkdir -p ${subj}/func; mv -v $i ${subj}/func/${ofname}; done
+  640  ls
+  641  ls */
+  642  ls */*/*
+  643  ls
+  644  singularity run -v /mnt:/mnt /home/fbarrios/singularity-images/cpac_v1.0.0 $PWD $PWD/output dont_run
+  645  singularity run -B /mnt:/mnt /home/fbarrios/singularity-images/cpac_v1.0.0 $PWD $PWD/output dont_run
+  646  cd ..
+  647  pwd
+  648  singularity run -B /mnt:/mnt /home/fbarrios/singularity-images/cpac_v1.0.0 /mnt/MD1200A/fbarrios/rsConRDC/ /mnt/MD1200A/fbarrios/rsConRDC/ dont_run
+  649  vi /mnt/MD1200A/fbarrios/rsConRDC/cpac_data_config_20161104231240.yml
+  650  ls
+  651  cd rsConRDC/
+
+  666  ls
+  667  singularity run -v /mnt:/mnt cpac_v1.0.0 bluch bluch GUI
+  668  singularity run -B /mnt:/mnt cpac_v1.0.0 bluch bluch GUI
+  669  ls
+  670  exit
+  671  ls
+  
+  731  ls
+  732  cd ../test_cpac/
+  733  ls
+  734  ls sub-*/*/*
+  735  ls sub-*/anat/*
+  736  ls $PWD/sub-*/anat/*
+  737  ls $PWD/sub-*/func/*
+  738  ls /mnt/MD1200A/fbarrios/egarza/*//anat/{subject}_T1w.nii.gz
+  739  ls /mnt/MD1200A/fbarrios/egarza/*/*/anat/*_T1w.nii.gz
+  740  qlogin 
+  741  qstat
+  742  qstat -f
+  743  qlogin
+  744  ls
+  745  cd 
+  7
+  774  qsub cpac_benchmark.sge 
+  775  qstat
+  776  watch -n 5 qstat
+  777  qdel 390
+  778  ls
+ 
+  791  ls
+  792  for i in benchmark.e390.*; do echo $i; done
+  793  for i in benchmark.e390.*; do cat $i; done
+  794  qlogin
+  795  history | grep qrsh
+  796  qrsh -q all.q@compute-00-00.cm.cluster
+  797  qrsh -q all.q@compute-00-01.cm.cluster
+  798  qrsh -q all.q@compute-00-02.cm.cluster
+  799  qrsh -q all.q@compute-00-03.cm.cluster
+  800  ls
+
+  804  screen
+  805  qrsh -q allq@
+  806  Hostname 
+  807  State 
+  808  Memory 
+  809  Cores 
+  810  CPU 
+  811  Speed 
+  812  GPU 
+  813  NICs 
+  814  IB 
+  815  Category 
+  816  compute-00-00UP47.06 GiB12Intel(R) Xeon(R) CPU E5-2690 v+3255 MHz61compute
+  817  compute-00-01UP94.31 GiB24Intel(R) Xeon(R) CPU E5-2690 v+3099 MHz61compute
+  818  compute-00-02
+  819  qrsh -q allq@compute-00-02
+  820  qrsh -q all.q@compute-00-02
+  821  ls
+  822  cd /mnt/MD1200A/
+ 
+  824  cd fbarrios/fbarrios/cpac_test/outputs_benchmark/cluster_files/
+  825  ls
+ 
+  878  qstat
+
+  888  singularity shell --shell /bin/bash /home/fbarrios/singularity-images/cpac_v1.0.0 
+
+  910  mount
+
+  924  cd 0010042_session_1
+  925  ls
+  926  vi pypeline.lo
+  927  vi pypeline.log
+  
+  935  cat benchmark.e396.*  | grep "raise LockException" | wc
+  936  module avail
+
+  948  qrsh -q all.q@compute-00-02.cm.cluster
+
+  950  cd /mnt/MD1200A/fbarrios/fbarrios/cpac_test/
+  
+  954  cd /mnt/MD1200A/fbarrios/fbarrios/cpac_test/
+  
+  973  qhost -q
+  974  qrsh -q all.q@compute-00-03
+  975  cd /mnt
+  976  
