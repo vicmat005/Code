@@ -15,6 +15,15 @@ module add singularity/2.2
 ## CPAC container: /mnt/MD1200A/fbarrios/fbarrios/singularity_images/cpac_v1.0.0
 singularity shell --shell /bin/bash -B /mnt:/mnt /mnt/MD1200A/fbarrios/fbarrios/singularity_images/cpac_v1.0.0
 
+## To find the number of free slots and the memory free per slot
+qstat -F slots
+qstat -F mem_free
+
+## A script for submiting a singularity job needs to be edited
+run_cluster.sge
+
 ## For defining the data file and the pipefile
 ## Data file is passed to the container with the --data_config_file
 ## Pipeline file is passed to the container with the --pipeline_file
+## For runnnig the container the script is submied to the sge
+qsub run_cluster.sge
