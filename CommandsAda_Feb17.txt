@@ -27,3 +27,12 @@ run_cluster.sge
 ## Pipeline file is passed to the container with the --pipeline_file
 ## For runnnig the container the script is submied to the sge
 qsub run_cluster.sge
+qstat -f
+
+## To see the usage at the slots, log into the node and run a top or htop
+qrsh -q all.q@compute-00-02.cm.cluster
+  htop
+  top
+  exit
+  
+##
