@@ -5,7 +5,16 @@
 
 ssh -Y user@ada.lavis.unam.mx
 ## load the working singularity module
+
+(module avail)
+module add singularity/2.2
+## the module list prints the loaded modules by the working shell
+
 ## working disk is: /mnt/MD1200A/fbarrios/BIDS
-## look for data dirs: BIDS_something
-## CPAC container: /home/fbarrios/singularity-images/cpac_v1.0.0
-singularity shell --shell /bin/bash -B /mnt:/mnt /home/fbarrios/singularity-images/cpac_v1.0.0
+## look for data directories: BIDS_something
+## CPAC container: /mnt/MD1200A/fbarrios/fbarrios/singularity_images/cpac_v1.0.0
+singularity shell --shell /bin/bash -B /mnt:/mnt /mnt/MD1200A/fbarrios/fbarrios/singularity_images/cpac_v1.0.0
+
+## For defining the data file and the pipefile
+## Data file is passed to the container with the --data_config_file
+## Pipeline file is passed to the container with the --pipeline_file
