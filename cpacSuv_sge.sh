@@ -14,6 +14,7 @@
 ## and stderr) will be stored
 #$ -wd /mnt/MD1200A/fbarrios/cpac_outputs
 
+module add singularity/2.2
 ## sudo chmod 777 /mnt
 mkdir -p /mnt/MD1200A/fbarrios/cpac_outputs/log/reports
 
