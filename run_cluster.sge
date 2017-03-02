@@ -3,6 +3,7 @@
 #$ -S /bin/bash
 #$ -N cpac_FAB
 #$ -pe openmp 8
+#$ -l mem_free=2G
 #$ -t 1-8 
 #$ -V
 #$ -wd /mnt/MD1200A/fbarrios/cpac_outputs/cluster_files
@@ -11,7 +12,7 @@ module add singularity/2.2
 
 singularity run -B /mnt:/mnt -B /tmp:/tmp \
   /mnt/MD1200A/fbarrios/fbarrios/singularity_images/cpac_v1.0.0 \
-  --n_cpus 8 --mem 30 \
+  --n_cpus 8 --mem 16 \
   --data_config_file /mnt/MD1200A/fbarrios/rsConRDC/cpac_data_config_20161104231240.yml \
   /mnt/MD1200A/fbarrios/rsConRDC/config_20170228 \
   /mnt/MD1200A/fbarrios/rsConRDC/outputs_config_20170228 \
