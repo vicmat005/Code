@@ -1,0 +1,11 @@
+## # # Commands to use at Ada.lavis.unam.mx
+## # # Notes for BrainHack Feb 2017
+## # # Practical use of singularity containers in Ada
+## # # "CPAC at Ada for dummies, 101"
+
+ssh -Y user@ada.lavis.unam.mx
+## load the working singularity module
+## working disk is: /mnt/MD1200A/fbarrios/BIDS
+## look for data dirs: BIDS_something
+## CPAC container: /home/fbarrios/singularity-images/cpac_v1.0.0
+singularity shell --shell /bin/bash -B /mnt:/mnt /home/fbarrios/singularity-images/cpac_v1.0.0
