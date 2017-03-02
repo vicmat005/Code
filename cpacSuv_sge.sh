@@ -4,11 +4,11 @@
 ## cpacFAB is the jobname and can be changed
 #$ -N cpac_fab
 ## execute the job using the mpi_smp parallel enviroment and 8 cores per job
-#$ -pe mpi_smp 8
 ## create an array of 1112 jobs
 #$ -t 1-48
 #$ -V
 #$ -l mem_free=2G
+## ## ##  #$ -pe mpi_smp 8  we dont have mpi_smp running in our Ada sge.
 ## change the following working directory to a persistent directory that is
 ## available on all nodes, this is were messages printed by the app (stdout
 ## and stderr) will be stored
