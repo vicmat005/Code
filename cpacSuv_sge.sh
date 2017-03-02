@@ -26,6 +26,7 @@ sleep $(( $SGE_TASK_ID % 10 ))
 singularity run -B /mnt:/mnt -B /tmp:/tmp \
   /mnt/MD1200A/fbarrios/fbarrios/singularity_images/cpac_v1.0.0 \
   --n_cpus 8 --mem 16 \
+  --pipeline_file /mnt/MD1200A/fbarrios/rsConRDC/pipeline_config_20161104231240.yml \
   --data_config_file /mnt/MD1200A/fbarrios/rsConRDC/cpac_data_config_20161104231240.yml \
   /mnt/MD1200A/fbarrios/rsConRDC/ \
   /mnt/MD1200A/fbarrios/rsConRDC/outputs_config_20170228/ \
