@@ -27,7 +27,7 @@ singularity run -B /mnt:/mnt  \
   /mnt/MD1200A/fbarrios/fbarrios/singularity_images/cpac_v1.0.0 \
   --n_cpus 8 --mem 16 \
   --pipeline_file /mnt/MD1200A/fbarrios/cpac_rsConRDC/pipeline_config_FAB.yml \
-  --data_config_file /mnt/MD1200A/fbarrios/rsConRDC/cpac_data_config_20161104231240.yml \
+  --data_config_file /mnt/MD1200A/fbarrios/cpac_rsConRDC/cpac_data_config_20161104231240.yml \
   /mnt/MD1200A/fbarrios/rsConRDC/ \
   /mnt/MD1200A/fbarrios/cpac_rsConRDC/outputs_FAB/ \
   participant --participant_ndx ${sge_ndx} 
